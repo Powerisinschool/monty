@@ -11,6 +11,7 @@ int main(int argc, char **argv)
     FILE *fp;
     char buff[255];
     char *line;
+    int lineNumber = 0;
     stack_t *head;
     head = NULL;
 
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
 
     while(fgets(buff, 255, fp))
     {
+        lineNumber++;
         line = buff;
 
         while (*line++)
@@ -43,12 +45,19 @@ int main(int argc, char **argv)
         if (strcmp(line, "push") == 0)
         {
             line = strtok(NULL, " ");
+            if (!isNumber(line))
+            {
+                fprintf(stderr, "L%i: usage: push integer", lineNumber);
+                return (EXIT_FAILURE);
+            }
             head = push(&head, atoi(line));
-        }
-
-        if (strcmp(line, "pall") == 0)
+        } else if (strcmp(line, "pall") == 0)
         {
             print_stack((const stack_t *)head);
+        } else
+        {
+            fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
+            return (EXIT_FAILURE);
         }
     }
 
@@ -110,4 +119,12 @@ stack_t *push(stack_t **head, const int n)
 	new->prev = temp;
 
 	return (new);
+}
+
+int isNumber(char *str)
+{
+    while (*str++)
+        if (*str < '0' || *str > '0')
+            return (-1);
+    return (0);
 }
