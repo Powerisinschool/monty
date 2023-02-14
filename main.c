@@ -80,7 +80,11 @@ int main(int argc, char **argv)
 			}
 		} else if (strcmp(line, "add") == 0)
 		{
-			add_stack(&head);
+			if (add_stack(&head) < 0)
+			{
+				fprintf(stderr, "L%i: can't add, stack too short\n", lineNumber);
+				return (EXIT_FAILURE);
+			}
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
