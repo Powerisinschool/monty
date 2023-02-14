@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 		if (strcmp(line, "push") == 0)
 		{
 			line = strtok(NULL, " ");
-			if (!isNumber(line))
+			if (isNumber(line) < 0)
 			{
 				fprintf(stderr, "L%i: usage: push integer\n", lineNumber);
 				return (EXIT_FAILURE);
@@ -86,8 +86,11 @@ int main(int argc, char **argv)
 */
 int isNumber(char *str)
 {
-	while (*str++)
-		if (*str < '0' || *str > '0')
+	int i;
+
+	for (i = 0; str[i]!= '\0'; i++)
+		if (str[i] < '0' || str[i] > '9')
 			return (-1);
+
 	return (0);
 }
