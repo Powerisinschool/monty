@@ -127,6 +127,9 @@ int main(int argc, char **argv)
 				fprintf(stderr, "L%i: can't mod, stack too short\n", lineNumber);
 				return (EXIT_FAILURE);
 			}
+		} else if (line[0] == '#')
+		{
+			continue;
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
