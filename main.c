@@ -78,6 +78,9 @@ int main(int argc, char **argv)
 				fprintf(stderr, "L%i: can't swap, stack too short\n", lineNumber);
 				return (EXIT_FAILURE);
 			}
+		} else if (strcmp(line, "add") == 0)
+		{
+			add_stack(&head);
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);

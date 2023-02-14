@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * swap_stack - Swap the top two elements at the top of the stack
- * @head: Stack to swap from
+ * add_stack - Add the top two elements at the top of the stack
+ * @head: Stack to add from
  *
  * Return: 0 on success
 */
-int swap_stack(stack_t **head)
+int add_stack(stack_t **head)
 {
     stack_t *tmp;
 
@@ -15,10 +15,9 @@ int swap_stack(stack_t **head)
 
     tmp = *head;
     *head = (*head)->next;
+    (*head)->n += tmp->n;
     (*head)->prev = NULL;
-    tmp->next = (*head)->next;
-    tmp->prev = *head;
-    (*head)->next = tmp;
+    free(tmp);
 
     return (0);
 }
