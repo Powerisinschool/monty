@@ -115,6 +115,18 @@ int main(int argc, char **argv)
 				fprintf(stderr, "L%i: can't mul, stack too short\n", lineNumber);
 				return (EXIT_FAILURE);
 			}
+		} else if (strcmp(line, "mod") == 0)
+		{
+			e = mod_stack(&head);
+			if (e < -1)
+			{
+				fprintf(stderr, "L%i: division by zero\n", lineNumber);
+				return (EXIT_FAILURE);
+			} else if (e < 0)
+			{
+				fprintf(stderr, "L%i: can't mod, stack too short\n", lineNumber);
+				return (EXIT_FAILURE);
+			}
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);

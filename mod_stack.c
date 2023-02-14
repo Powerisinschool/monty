@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * div_stack - Divide the second element from the top one at the top of the stack
- * @head: Stack to divide from
+ * mod_stack - 'Modulo' the second element from the top one at the top of the stack
+ * @head: Stack to 'modulo' from
  *
  * Return: 0 on success
 */
-int div_stack(stack_t **head)
+int mod_stack(stack_t **head)
 {
 	stack_t *tmp;
 
@@ -18,7 +18,7 @@ int div_stack(stack_t **head)
 
 	tmp = *head;
 	*head = (*head)->next;
-	(*head)->n /= tmp->n;
+	(*head)->n %= tmp->n;
 	(*head)->prev = NULL;
 	free(tmp);
 
