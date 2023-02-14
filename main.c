@@ -64,6 +64,13 @@ int main(int argc, char **argv)
 				return (EXIT_FAILURE);
 			}
 			printf("%i\n", head->n);
+		} else if (strcmp(line, "pop") == 0)
+		{
+			if (pop_stack(&head) < 0)
+			{
+				fprintf(stderr, "L%i: can't pop an empty stack\n", lineNumber);
+				return (EXIT_FAILURE);
+			}
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
