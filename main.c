@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 			line = strtok(NULL, " ");
 			if (!isNumber(line))
 			{
-				fprintf(stderr, "L%i: usage: push integer", lineNumber);
+				fprintf(stderr, "L%i: usage: push integer\n", lineNumber);
 				return (EXIT_FAILURE);
 			}
 			head = push_stack(&head, atoi(line));
@@ -58,6 +58,11 @@ int main(int argc, char **argv)
 			print_stack((const stack_t *)head);
 		} else if (strcmp(line, "pint") == 0)
 		{
+			if (head == NULL)
+			{
+				fprintf(stderr, "L%i: can't pint, stack empty\n", lineNumber);
+				return EXIT_FAILURE;
+			}
 			printf("%i\n", head->n);
 		} else
 		{
