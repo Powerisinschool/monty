@@ -144,6 +144,9 @@ int main(int argc, char **argv)
 
 			putchar(head->n);
 			putchar('\n');
+		} else if (strcmp(line, "") == 0 || strcmp(line, "\n") == 0)
+		{
+			continue;
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
