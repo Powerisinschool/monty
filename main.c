@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 			if (head == NULL)
 			{
 				fprintf(stderr, "L%i: can't pint, stack empty\n", lineNumber);
-				return EXIT_FAILURE;
+				return (EXIT_FAILURE);
 			}
 			printf("%i\n", head->n);
 		} else
@@ -72,8 +72,10 @@ int main(int argc, char **argv)
 	}
 
 	fclose(fp);
+	free_stack(head);
+	head = NULL;
 
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 /**

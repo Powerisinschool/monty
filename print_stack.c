@@ -8,7 +8,7 @@
  */
 size_t print_stack(const stack_t *h)
 {
-	size_t i = -1;
+	size_t i = 0;
 	stack_t *curr = (stack_t *) h;
 
 	if (h == NULL)
@@ -18,15 +18,6 @@ size_t print_stack(const stack_t *h)
 	{
 		printf("%i\n", curr->n);
 		curr = curr->next;
-		i++;
-	}
-
-	curr = (stack_t *) h;
-	while (curr != NULL)
-	{
-		curr = curr->prev;
-		if (curr != NULL)
-			printf("%i\n", curr->n);
 		i++;
 	}
 	return (i);

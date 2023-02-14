@@ -39,5 +39,6 @@ typedef struct instruction_s
 size_t print_stack(const stack_t *h);
 stack_t *push_stack(stack_t **head, const int num);
 char *strstrip(char *s);
+void free_stack(stack_t *head);
 
 #endif /* MONTY_H */

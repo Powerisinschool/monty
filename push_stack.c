@@ -10,28 +10,13 @@
 stack_t *push_stack(stack_t **head, const int n)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	stack_t *temp;
 
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 
 	new->n = n;
-	new->next = NULL;
-
-	/* Create head if head does not exist */
-	if (*head == NULL)
-	{
-		new->prev = NULL;
-		*head = new;
-		return (new);
-	}
-
-	temp = *head;
-	while (temp->next != NULL)
-		temp = temp->next;
-
-	temp->next = new;
-	new->prev = temp;
+	new->next = *head;
+	new->prev = NULL;
 
 	return (new);
 }
