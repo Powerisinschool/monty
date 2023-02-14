@@ -144,6 +144,9 @@ int main(int argc, char **argv)
 
 			putchar(head->n);
 			putchar('\n');
+		} else if (strcmp(line, "pstr") == 0)
+		{
+			pstr_stack((const stack_t *)head);
 		} else if (strcmp(line, "") == 0 || strcmp(line, "\n") == 0)
 		{
 			continue;

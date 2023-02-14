@@ -47,5 +47,6 @@ int sub_stack(stack_t **head);
 int div_stack(stack_t **head);
 int mul_stack(stack_t **head);
 int mod_stack(stack_t **head);
+int pstr_stack(const stack_t *h);
 
 #endif /* MONTY_H */
