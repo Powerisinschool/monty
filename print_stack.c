@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * print_dlistint - Print the number of elements in a linked list
+ * print_stack - Print the number of elements in a linked list
  * @h: The linked list
  *
  * Return: The number of elements

@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * add_dnodeint_end - Add a node to the start of a linked list
+ * push_stack - Add a node to the start of a linked list
  * @head: The linked list
  * @n: The value
  *
  * Return: The number of elements
  */
-stack_t *add_stack(stack_t **head, const int n)
+stack_t *push_stack(stack_t **head, const int n)
 {
 	stack_t *new = malloc(sizeof(stack_t));
 	stack_t *temp;
