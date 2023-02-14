@@ -48,5 +48,7 @@ int div_stack(stack_t **head);
 int mul_stack(stack_t **head);
 int mod_stack(stack_t **head);
 int pstr_stack(const stack_t *h);
+void reverse_stack(stack_t **stack);
+void rotate_stack(stack_t **head);
 
 #endif /* MONTY_H */
