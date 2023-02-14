@@ -15,6 +15,7 @@ int main(int argc, char **argv)
 	char buff[255];
 	char *line;
 	int lineNumber = 0;
+	int e;
 	stack_t *head = NULL;
 
 	if (argc != 2)
@@ -93,6 +94,18 @@ int main(int argc, char **argv)
 			if (sub_stack(&head) < 0)
 			{
 				fprintf(stderr, "L%i: can't sub, stack too short\n", lineNumber);
+				return (EXIT_FAILURE);
+			}
+		} else if (strcmp(line, "div") == 0)
+		{
+			e = div_stack(&head);
+			if (e < -1)
+			{
+				fprintf(stderr, "L%i: division by zero\n", lineNumber);
+				return (EXIT_FAILURE);
+			} else if (e < 0)
+			{
+				fprintf(stderr, "L%i: can't div, stack too short\n", lineNumber);
 				return (EXIT_FAILURE);
 			}
 		} else

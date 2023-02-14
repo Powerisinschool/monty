@@ -44,5 +44,6 @@ int pop_stack(stack_t **head);
 int swap_stack(stack_t **head);
 int add_stack(stack_t **head);
 int sub_stack(stack_t **head);
+int div_stack(stack_t **head);
 
 #endif /* MONTY_H */

@@ -8,16 +8,16 @@
 */
 int add_stack(stack_t **head)
 {
-    stack_t *tmp;
+	stack_t *tmp;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return (-1);
+	if (*head == NULL || (*head)->next == NULL)
+		return (-1);
 
-    tmp = *head;
-    *head = (*head)->next;
-    (*head)->n += tmp->n;
-    (*head)->prev = NULL;
-    free(tmp);
+	tmp = *head;
+	*head = (*head)->next;
+	(*head)->n += tmp->n;
+	(*head)->prev = NULL;
+	free(tmp);
 
-    return (0);
+	return (0);
 }
