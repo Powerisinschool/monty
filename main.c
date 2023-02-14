@@ -130,6 +130,20 @@ int main(int argc, char **argv)
 		} else if (line[0] == '#')
 		{
 			continue;
+		} else if (strcmp(line, "pchar") == 0)
+		{
+			if (head == NULL)
+			{
+				fprintf(stderr, "L%i: can't pchar, stack empty\n", lineNumber);
+				return (EXIT_FAILURE);
+			} else if (head->n > 127 || head->n < 0)
+			{
+				fprintf(stderr, "L%i: can't pchar, value out of range\n", lineNumber);
+				return (EXIT_FAILURE);
+			}
+
+			putchar(head->n);
+			putchar('\n');
 		} else
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", lineNumber, line);
