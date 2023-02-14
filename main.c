@@ -169,7 +169,7 @@ int isNumber(char *str)
 	int i;
 
 	for (i = 0; str[i]!= '\0'; i++)
-		if (str[i] < '0' || str[i] > '9')
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '-' && str[i] != '+')
 			return (-1);
 
 	return (0);
