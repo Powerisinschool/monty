@@ -41,5 +41,6 @@ stack_t *push_stack(stack_t **head, const int num);
 char *strstrip(char *s);
 void free_stack(stack_t *head);
 int pop_stack(stack_t **head);
+int swap_stack(stack_t **head);
 
 #endif /* MONTY_H */
